@@ -120,6 +120,22 @@ export interface ExamPrediction {
   isCached?: boolean;
 }
 
+export interface MCQQuestion {
+  id: string;
+  courseCode: string;
+  courseTitle?: string;
+  topic: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  questionText: string;
+  options: string[];
+  correctOptionIndex: number;
+  explanation: string;
+  sourceCitation?: string;
+  createdAt?: string;
+  isAiGenerated?: boolean;
+  authorName?: string;
+}
+
 export interface Message {
   id: string;
   threadId: string;

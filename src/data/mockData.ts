@@ -8,6 +8,7 @@ import {
   Message,
   AuditLog,
   ExamPrediction,
+  MCQQuestion,
 } from '../types';
 
 export const DEPARTMENTS: Department[] = [
@@ -805,7 +806,553 @@ export const INITIAL_PREDICTIONS: Record<string, ExamPrediction> = {
       },
     ],
   },
+  'CSE 2201': {
+    courseCode: 'CSE 2201',
+    courseTitle: 'Design & Analysis of Algorithms',
+    confidenceScore: 96,
+    analyzedPapersCount: 5,
+    generatedAt: '2025-02-14T01:00:00Z',
+    isCached: true,
+    summaryAdvice: 'Dynamic Programming (0/1 Knapsack, LCS, Matrix Chain) and Greedy paradigms (Activity Selection, Huffman) carry 45%+ total weight. Proof of optimal substructure and greedy-choice property is strictly graded.',
+    recurringTopics: [
+      {
+        topic: 'Dynamic Programming Formulations & Table Construction',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Derive the recurrence relation for Longest Common Subsequence (LCS) of two strings X and Y. Construct the DP cost matrix and backtrack direction table.',
+            expectedMarks: 10,
+            predictionRationale: 'Appeared in 2021, 2022, 2023, and 2024 finals as compulsory Section A DP problem.',
+            sourceCitations: ['2024 Q2(a)', '2023 Q2(b)', '2022 Q1(a)', '2021 Q2(a)'],
+          },
+          {
+            question: 'Formulate the 0/1 Knapsack recurrence and state why the Greedy ratio strategy fails for 0/1 but works for Fractional Knapsack.',
+            expectedMarks: 8,
+            predictionRationale: 'Tested in 2020, 2022, and 2024 examinations.',
+            sourceCitations: ['2024 Q3(a)', '2022 Q2(a)'],
+          },
+        ],
+      },
+      {
+        topic: 'Graph Shortest Paths & Minimum Spanning Trees (Dijkstra vs Bellman-Ford, Kruskal vs Prim)',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Execute Dijkstra’s single-source shortest path algorithm step-by-step on a given weighted directed graph. Why does Dijkstra fail in the presence of negative edge weights?',
+            expectedMarks: 9,
+            predictionRationale: 'Standard numerical trace question in Section B.',
+            sourceCitations: ['2024 Q4(a)', '2023 Q3(a)', '2021 Q3(b)'],
+          },
+        ],
+      },
+      {
+        topic: 'Asymptotic Recurrence Solutions (Master Theorem & Recursion Trees)',
+        frequency: 4,
+        yearsAppeared: [2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Solve recurrence T(n) = 3T(n/4) + n log n using Master Method or change of variables.',
+            expectedMarks: 6,
+            predictionRationale: 'Compulsory short question in Q1(a).',
+            sourceCitations: ['2024 Q1(a)', '2023 Q1(b)', '2022 Q1(b)'],
+          },
+        ],
+      },
+    ],
+  },
+  'CSE 3201': {
+    courseCode: 'CSE 3201',
+    courseTitle: 'Operating Systems & System Programming',
+    confidenceScore: 95,
+    analyzedPapersCount: 5,
+    generatedAt: '2025-02-14T01:00:00Z',
+    isCached: true,
+    summaryAdvice: 'Paging hardware calculations (TLB hit ratios, page tables) and Banker’s Deadlock avoidance algorithm are guaranteed 15-20 marks. Focus on synchronization primitives (Semaphores, Monitors).',
+    recurringTopics: [
+      {
+        topic: 'Memory Management: Paging, TLB, Page Fault Handling & Inverted Page Tables',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Given 32-bit virtual address, 4KB page size, 2-level paging schema, calculate effective memory access time with TLB hit ratio alpha=0.95 and memory access time 100ns.',
+            expectedMarks: 10,
+            predictionRationale: 'Numerical paging calculation appeared in all last 5 years of RUET OS exams.',
+            sourceCitations: ['2024 Q3(a)', '2023 Q3(b)', '2022 Q3(a)', '2021 Q4(a)', '2020 Q3(b)'],
+          },
+        ],
+      },
+      {
+        topic: 'Deadlock Avoidance: Banker’s Safety & Resource Request Algorithm',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Given Allocation, Max, and Available matrices for 5 processes and 3 resource types, calculate Need matrix, verify if system is in safe state, and test a new request from Process P1.',
+            expectedMarks: 10,
+            predictionRationale: 'Banker’s algorithm numerical is tested in every semester final exam.',
+            sourceCitations: ['2024 Q2(a)', '2023 Q2(a)', '2022 Q2(a)', '2020 Q2(a)'],
+          },
+        ],
+      },
+      {
+        topic: 'Process Synchronization: Critical Section Problem, Semaphores & Dining Philosophers',
+        frequency: 4,
+        yearsAppeared: [2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Design a deadlock-free and starvation-free solution to the Producer-Consumer bounded buffer problem using counting and binary semaphores.',
+            expectedMarks: 8,
+            predictionRationale: 'Core synchronization proof tested frequently in Section A.',
+            sourceCitations: ['2024 Q1(b)', '2023 Q1(a)', '2021 Q2(a)'],
+          },
+        ],
+      },
+    ],
+  },
+  'CSE 4101': {
+    courseCode: 'CSE 4101',
+    courseTitle: 'Artificial Intelligence & Expert Systems',
+    confidenceScore: 93,
+    analyzedPapersCount: 5,
+    generatedAt: '2025-02-14T01:00:00Z',
+    isCached: true,
+    summaryAdvice: 'A* Search admissible/consistent heuristic proofs, Minimax with Alpha-Beta pruning traces, and First-Order Logic resolution refutation make up over 60% of question papers.',
+    recurringTopics: [
+      {
+        topic: 'Informed Search: A* Search Admissibility & Monotonicity Proofs',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Prove that A* tree search is optimal if heuristic function h(n) is admissible. Trace A* path on a 8-puzzle or grid navigation state space.',
+            expectedMarks: 10,
+            predictionRationale: 'Found in 5 consecutive RUET finals with step-by-step trace requirement.',
+            sourceCitations: ['2024 Q1(a)', '2023 Q1(a)', '2022 Q1(b)', '2020 Q1(a)'],
+          },
+        ],
+      },
+      {
+        topic: 'Adversarial Search: Minimax & Alpha-Beta Pruning Tracing',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'For a given 4-ply game tree with leaf payoff values, execute Alpha-Beta pruning from left-to-right. Clearly indicate all pruned branches and final minimax value of the root.',
+            expectedMarks: 10,
+            predictionRationale: 'Compulsory numerical trace in Section A.',
+            sourceCitations: ['2024 Q2(a)', '2023 Q2(a)', '2022 Q2(a)', '2021 Q2(a)'],
+          },
+        ],
+      },
+      {
+        topic: 'Knowledge Representation: First-Order Logic (FOL) & Resolution Refutation',
+        frequency: 4,
+        yearsAppeared: [2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Convert English premises into FOL sentences, skolemize to CNF clauses, and prove conclusion by Resolution Refutation.',
+            expectedMarks: 10,
+            predictionRationale: 'Core Section B question in 4 out of last 5 years.',
+            sourceCitations: ['2024 Q3(a)', '2023 Q3(a)', '2021 Q3(a)'],
+          },
+        ],
+      },
+    ],
+  },
+  'CSE 2101': {
+    courseCode: 'CSE 2101',
+    courseTitle: 'Data Structures & OOP',
+    confidenceScore: 95,
+    analyzedPapersCount: 5,
+    generatedAt: '2025-02-14T01:00:00Z',
+    isCached: true,
+    summaryAdvice: 'AVL Tree rotations (LL, RR, LR, RL), Red-Black tree properties, Binary Heap build-heap complexity O(n), and C++ virtual function table (vtable) dispatch are highest priority.',
+    recurringTopics: [
+      {
+        topic: 'Balanced Search Trees: AVL Rotations & Rebalancing Tracing',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Insert keys into an empty AVL tree and show all intermediate rotations (LL, RR, LR, RL) with balance factors.',
+            expectedMarks: 10,
+            predictionRationale: 'AVL tree construction is a fixture of RUET CSE 2101 exams.',
+            sourceCitations: ['2024 Q2(a)', '2023 Q2(a)', '2022 Q2(a)', '2021 Q2(b)'],
+          },
+        ],
+      },
+      {
+        topic: 'Heaps & Priority Queues: Build-Heap Complexity Proof O(n)',
+        frequency: 4,
+        yearsAppeared: [2020, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Prove mathematically that building a max-heap of n elements takes linear time O(n) using summation of heights.',
+            expectedMarks: 8,
+            predictionRationale: 'Tested in 2020, 2022, 2023, and 2024 papers.',
+            sourceCitations: ['2024 Q1(b)', '2023 Q1(b)', '2020 Q1(b)'],
+          },
+        ],
+      },
+    ],
+  },
+  'CSE 3103': {
+    courseCode: 'CSE 3103',
+    courseTitle: 'Computer Networks',
+    confidenceScore: 94,
+    analyzedPapersCount: 5,
+    generatedAt: '2025-02-14T01:00:00Z',
+    isCached: true,
+    summaryAdvice: 'VLSM Subnetting design, TCP Congestion Control (Slow Start, Congestion Avoidance, Fast Retransmit), and Distance Vector routing count-to-infinity problem make up the bulk of numerical marks.',
+    recurringTopics: [
+      {
+        topic: 'IP Subnetting: Variable Length Subnet Masking (VLSM) Network Design',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Given Class C network 192.168.10.0/24, design a VLSM subnet schema for 4 departments requiring 60, 28, 12, and 2 hosts. List subnet IDs, broadcast addresses, and valid IP ranges.',
+            expectedMarks: 12,
+            predictionRationale: 'Tested every year in Section A Question 1/2.',
+            sourceCitations: ['2024 Q1(a)', '2023 Q1(a)', '2022 Q1(a)', '2021 Q1(a)'],
+          },
+        ],
+      },
+      {
+        topic: 'Transport Layer: TCP Reno Congestion Control Window Trace',
+        frequency: 5,
+        yearsAppeared: [2020, 2021, 2022, 2023, 2024],
+        importance: 'High',
+        probableQuestions: [
+          {
+            question: 'Trace the congestion window (cwnd) and slow-start threshold (ssthresh) over 15 transmission rounds with packet loss at round 8 (3 duplicate ACKs) and timeout at round 12.',
+            expectedMarks: 10,
+            predictionRationale: 'Standard 10-mark graph/table trace in Section B.',
+            sourceCitations: ['2024 Q3(a)', '2023 Q3(b)', '2022 Q3(a)'],
+          },
+        ],
+      },
+    ],
+  },
 };
+
+export const INITIAL_MCQ_QUESTIONS: MCQQuestion[] = [
+  // CSE 3101: DBMS
+  {
+    id: 'mcq-dbms-1',
+    courseCode: 'CSE 3101',
+    courseTitle: 'Database Management Systems',
+    topic: 'Normalization & Schema Refinement',
+    difficulty: 'Medium',
+    questionText: 'A relation R(A, B, C, D) has functional dependencies F = { A -> B, B -> C, C -> D, D -> A }. In which highest normal form is relation R?',
+    options: [
+      '1NF only',
+      '2NF but not 3NF',
+      '3NF and BCNF',
+      '2NF and 3NF, but not BCNF'
+    ],
+    correctOptionIndex: 2,
+    explanation: 'Every attribute (A, B, C, D) is a single-attribute candidate key (A+ = ABCD, B+ = ABCD, C+ = ABCD, D+ = ABCD). Since the left side of every non-trivial functional dependency is a superkey, relation R is in Boyce-Codd Normal Form (BCNF) as well as 3NF.',
+    sourceCitation: 'RUET CSE 3101 Final Exam 2023 Q1(a)',
+  },
+  {
+    id: 'mcq-dbms-2',
+    courseCode: 'CSE 3101',
+    courseTitle: 'Database Management Systems',
+    topic: 'B+ Trees Indexing',
+    difficulty: 'Hard',
+    questionText: 'In a B+ Tree of order p (where order is the max pointers in an internal node), what is the minimum number of child pointers an internal node (except root) can have?',
+    options: [
+      'p',
+      'ceil(p / 2)',
+      'floor(p / 2)',
+      'p - 1'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'By standard B+ Tree definition, an internal node with maximum fan-out p must contain at least ceil(p / 2) child pointers to maintain the 50% minimum occupancy invariant.',
+    sourceCitation: 'RUET CSE 3101 CT-2 2024',
+  },
+  {
+    id: 'mcq-dbms-3',
+    courseCode: 'CSE 3101',
+    courseTitle: 'Database Management Systems',
+    topic: 'Transaction Concurrency & 2PL',
+    difficulty: 'Medium',
+    questionText: 'Which property is strictly guaranteed by the Strict Two-Phase Locking (Strict 2PL) protocol?',
+    options: [
+      'Prevents deadlocks completely',
+      'Prevents cascading rollbacks (cascadeless schedules)',
+      'Guarantees linear time complexity',
+      'Eliminates the need for write-ahead logging (WAL)'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Strict 2PL requires that all exclusive (write) locks held by a transaction be released only after the transaction commits or aborts. This prevents other transactions from reading uncommitted dirty data, strictly avoiding cascading aborts.',
+    sourceCitation: 'RUET CSE 3101 Final 2024 Q3(b)',
+  },
+  {
+    id: 'mcq-dbms-4',
+    courseCode: 'CSE 3101',
+    courseTitle: 'Database Management Systems',
+    topic: 'Relational Algebra & SQL',
+    difficulty: 'Easy',
+    questionText: 'Which relational algebra operation is equivalent to a Cartesian Product followed by a Selection operation with an equality condition on common attributes?',
+    options: [
+      'Theta Join',
+      'Natural Join',
+      'Left Outer Join',
+      'Division'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Natural Join (⋈) performs a Cartesian Product (R × S), filters rows where all identically named attributes match (Selection σ), and projects out duplicate columns.',
+    sourceCitation: 'RUET CSE 3101 Mid-term',
+  },
+  {
+    id: 'mcq-dbms-5',
+    courseCode: 'CSE 3101',
+    courseTitle: 'Database Management Systems',
+    topic: 'ACID Properties & Crash Recovery',
+    difficulty: 'Medium',
+    questionText: 'Under the Write-Ahead Logging (WAL) protocol, when must a log record containing an update be flushed to non-volatile disk storage?',
+    options: [
+      'Only during a system checkpoint',
+      'Before the corresponding modified database page is written to disk',
+      'Immediately after the transaction commits',
+      'Only when the buffer pool is full'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'The fundamental rule of WAL states: "The log record representing an update to a database object must be written to stable storage before the dirty database page is written to disk." This guarantees Atomicity and Durability during crash recovery.',
+    sourceCitation: 'RUET CSE 3101 Final 2022 Q4(a)',
+  },
+
+  // CSE 2201: Algorithms
+  {
+    id: 'mcq-algo-1',
+    courseCode: 'CSE 2201',
+    courseTitle: 'Design & Analysis of Algorithms',
+    topic: 'Dynamic Programming',
+    difficulty: 'Medium',
+    questionText: 'What is the optimal substructure time complexity of computing the Longest Common Subsequence (LCS) of two strings of lengths m and n using DP table memoization?',
+    options: [
+      'O(m + n)',
+      'O(m * n)',
+      'O(m log n)',
+      'O(2^(m+n))'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'The standard dynamic programming algorithm builds an (m+1) × (n+1) grid where each cell (i, j) is computed in O(1) time using LCS(i,j) = 1 + LCS(i-1,j-1) if matches, or max(LCS(i-1,j), LCS(i,j-1)) otherwise. Total time is O(m * n).',
+    sourceCitation: 'RUET CSE 2201 Final 2024 Q2(a)',
+  },
+  {
+    id: 'mcq-algo-2',
+    courseCode: 'CSE 2201',
+    courseTitle: 'Design & Analysis of Algorithms',
+    topic: 'Graph Algorithms & Shortest Path',
+    difficulty: 'Hard',
+    questionText: 'Why can Dijkstra’s algorithm produce incorrect shortest path weights on graphs with negative edge weights?',
+    options: [
+      'It gets trapped in infinite recursion',
+      'It assumes once a node is extracted from the priority queue, its shortest distance is finalized and will not decrease',
+      'It cannot process directed acyclic graphs',
+      'Priority queue cannot store negative numbers'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Dijkstra relies on a greedy property: adding a positive edge weight always increases path length. If negative weights exist, a longer existing path could later become shorter via a negative edge after a node was already finalized and marked visited.',
+    sourceCitation: 'RUET CSE 2201 Final 2023 Q3(a)',
+  },
+  {
+    id: 'mcq-algo-3',
+    courseCode: 'CSE 2201',
+    courseTitle: 'Design & Analysis of Algorithms',
+    topic: 'Greedy Algorithms',
+    difficulty: 'Easy',
+    questionText: 'In the Activity Selection Problem, which greedy choice strategy yields the maximum number of mutually compatible activities?',
+    options: [
+      'Select activity with shortest duration (finish - start)',
+      'Select activity with earliest start time',
+      'Select activity with earliest finish time',
+      'Select activity with fewest overlapping conflicts'
+    ],
+    correctOptionIndex: 2,
+    explanation: 'Greedy choice by earliest finish time leaves the maximum possible remaining time for subsequent activities, which is mathematically proven to produce the global optimal set.',
+    sourceCitation: 'RUET CSE 2201 CT-1 2024',
+  },
+  {
+    id: 'mcq-algo-4',
+    courseCode: 'CSE 2201',
+    courseTitle: 'Design & Analysis of Algorithms',
+    topic: 'Asymptotic Complexity',
+    difficulty: 'Medium',
+    questionText: 'Using the Master Theorem, what is the asymptotic time complexity of T(n) = 4T(n/2) + n^2?',
+    options: [
+      'Theta(n^2)',
+      'Theta(n^2 log n)',
+      'Theta(n^3)',
+      'Theta(n log n)'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Here a=4, b=2, so n^(log_b a) = n^(log_2 4) = n^2. Since f(n) = n^2 = Theta(n^(log_b a)), Case 2 of Master Theorem applies: T(n) = Theta(n^2 log n).',
+    sourceCitation: 'RUET CSE 2201 Final 2022 Q1(a)',
+  },
+
+  // CSE 3201: Operating Systems
+  {
+    id: 'mcq-os-1',
+    courseCode: 'CSE 3201',
+    courseTitle: 'Operating Systems & System Programming',
+    topic: 'Memory Management & Paging',
+    difficulty: 'Hard',
+    questionText: 'A system uses a 32-bit virtual address and 4 KB page size. If each page table entry takes 4 bytes, how much memory is required for a single-level full page table for one process?',
+    options: [
+      '4 KB',
+      '1 MB',
+      '4 MB',
+      '16 MB'
+    ],
+    correctOptionIndex: 2,
+    explanation: '4 KB page size = 2^12 bytes. Number of virtual pages = 2^32 / 2^12 = 2^20 pages (1,048,576 pages). At 4 bytes per entry, Total Page Table size = 2^20 * 4 bytes = 4 MB per process.',
+    sourceCitation: 'RUET CSE 3201 Final 2024 Q3(a)',
+  },
+  {
+    id: 'mcq-os-2',
+    courseCode: 'CSE 3201',
+    courseTitle: 'Operating Systems & System Programming',
+    topic: 'Deadlock Avoidance',
+    difficulty: 'Medium',
+    questionText: 'Which condition is NOT one of Coffman’s four necessary conditions for deadlock occurrence?',
+    options: [
+      'Mutual Exclusion',
+      'Hold and Wait',
+      'Preemption of resources by kernel scheduler',
+      'Circular Wait'
+    ],
+    correctOptionIndex: 2,
+    explanation: 'The four necessary conditions for deadlock are: 1. Mutual Exclusion, 2. Hold and Wait, 3. No Preemption (resources cannot be forcibly taken), 4. Circular Wait. "Preemption" actually breaks deadlocks.',
+    sourceCitation: 'RUET CSE 3201 CT-2 2023',
+  },
+  {
+    id: 'mcq-os-3',
+    courseCode: 'CSE 3201',
+    courseTitle: 'Operating Systems & System Programming',
+    topic: 'Process Scheduling',
+    difficulty: 'Easy',
+    questionText: 'Which CPU scheduling algorithm is non-preemptive and can suffer severely from the Convoy Effect?',
+    options: [
+      'First-Come First-Served (FCFS)',
+      'Round Robin (RR)',
+      'Shortest Remaining Time First (SRTF)',
+      'Multi-Level Feedback Queue'
+    ],
+    correctOptionIndex: 0,
+    explanation: 'In FCFS, if a long CPU-bound process arrives first, all short I/O-bound processes queue up behind it, drastically increasing average waiting time (known as the Convoy Effect).',
+    sourceCitation: 'RUET CSE 3201 Final 2023 Q1(c)',
+  },
+
+  // CSE 4101: Artificial Intelligence
+  {
+    id: 'mcq-ai-1',
+    courseCode: 'CSE 4101',
+    courseTitle: 'Artificial Intelligence & Expert Systems',
+    topic: 'Informed Search & A*',
+    difficulty: 'Medium',
+    questionText: 'An admissible heuristic h(n) in A* tree search is defined as one that:',
+    options: [
+      'Never underestimates the true cost to reach the goal (h(n) >= h*(n))',
+      'Never overestimates the true cost to reach the goal (h(n) <= h*(n))',
+      'Equals the exact Euclidean distance at all times',
+      'Is always equal to zero (reducing to BFS)'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'Admissibility means h(n) is an optimistic estimate that never overestimates the actual minimal cost h*(n) from node n to the nearest goal state, which guarantees A* tree search optimality.',
+    sourceCitation: 'RUET CSE 4101 Final 2024 Q1(a)',
+  },
+  {
+    id: 'mcq-ai-2',
+    courseCode: 'CSE 4101',
+    courseTitle: 'Artificial Intelligence & Expert Systems',
+    topic: 'Adversarial Game Search',
+    difficulty: 'Hard',
+    questionText: 'In Alpha-Beta pruning, when is a subtree pruned at a MIN node?',
+    options: [
+      'When beta <= alpha',
+      'When alpha >= 1.0',
+      'When depth is an odd number',
+      'When evaluation value is zero'
+    ],
+    correctOptionIndex: 0,
+    explanation: 'Alpha represents the best value MAX can guarantee so far, and Beta represents the best value MIN can guarantee. At a MIN node, if the current beta drops below or equals alpha (beta <= alpha), MAX would never choose this branch, so remaining children are safely pruned (Alpha cutoff).',
+    sourceCitation: 'RUET CSE 4101 Final 2023 Q2(a)',
+  },
+
+  // CSE 3103: Networks
+  {
+    id: 'mcq-net-1',
+    courseCode: 'CSE 3103',
+    courseTitle: 'Computer Networks',
+    topic: 'IP Subnetting & Addressing',
+    difficulty: 'Medium',
+    questionText: 'What is the usable host capacity and broadcast address for subnet 172.16.32.0/20?',
+    options: [
+      '4094 usable hosts; Broadcast: 172.16.47.255',
+      '2046 usable hosts; Broadcast: 172.16.39.255',
+      '4096 usable hosts; Broadcast: 172.16.32.255',
+      '1022 usable hosts; Broadcast: 172.16.35.255'
+    ],
+    correctOptionIndex: 0,
+    explanation: 'A /20 prefix leaves 32 - 20 = 12 host bits. Total hosts = 2^12 = 4096. Usable hosts = 4096 - 2 = 4094. The 3rd octet block size is 2^(24-20) = 16. Subnet range: 172.16.32.0 to 172.16.47.255 (Broadcast address).',
+    sourceCitation: 'RUET CSE 3103 Final 2024 Q1(a)',
+  },
+  {
+    id: 'mcq-net-2',
+    courseCode: 'CSE 3103',
+    courseTitle: 'Computer Networks',
+    topic: 'TCP Congestion Control',
+    difficulty: 'Medium',
+    questionText: 'In TCP Tahoe vs TCP Reno, what does TCP Reno do upon detecting packet loss via 3 duplicate ACKs?',
+    options: [
+      'Sets cwnd to 1 MSS and enters Slow Start',
+      'Halves cwnd (Fast Recovery) and enters Congestion Avoidance without dropping cwnd to 1',
+      'Increases cwnd exponentially',
+      'Terminates the TCP connection with RST flag'
+    ],
+    correctOptionIndex: 1,
+    explanation: 'TCP Reno implements Fast Retransmit and Fast Recovery: on 3 duplicate ACKs, it sets ssthresh = cwnd / 2 and cwnd = ssthresh + 3, skipping the slow start phase back from 1 MSS (which Tahoe did).',
+    sourceCitation: 'RUET CSE 3103 Final 2023 Q3(a)',
+  },
+
+  // CSE 2101: Data Structures
+  {
+    id: 'mcq-ds-1',
+    courseCode: 'CSE 2101',
+    courseTitle: 'Data Structures & OOP',
+    topic: 'Binary Search Trees & AVL',
+    difficulty: 'Medium',
+    questionText: 'What is the balance factor of a node in an AVL tree and what is its valid range?',
+    options: [
+      'Height(Left) - Height(Right); must be in {-1, 0, +1}',
+      'Nodes(Left) - Nodes(Right); must be <= 2',
+      'Depth(Left) / Depth(Right); must be equal to 1',
+      'Degree of left child; must be in {0, 1, 2}'
+    ],
+    correctOptionIndex: 0,
+    explanation: 'Balance factor BF(node) = Height(Left Subtree) - Height(Right Subtree). An AVL tree strictly enforces that BF(node) ∈ {-1, 0, +1} for every node in the tree; otherwise rotations are triggered.',
+    sourceCitation: 'RUET CSE 2101 Final 2024 Q2(a)',
+  },
+];
 
 export const INITIAL_THREADS: Thread[] = [
   {

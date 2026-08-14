@@ -5,6 +5,7 @@ import {
   INITIAL_CONTENT_ITEMS,
   QUESTION_BANK,
   INITIAL_PREDICTIONS,
+  INITIAL_MCQ_QUESTIONS,
   PENDING_REGISTRATIONS,
   INITIAL_THREADS,
   INITIAL_MESSAGES,
@@ -32,10 +33,10 @@ export default function App() {
     return saved === 'light' ? 'light' : 'dark';
   });
 
-  // Authentication State
+  // Authentication State: defaults to false so new visitors land directly on the Login page
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
     const saved = localStorage.getItem('your_classroom_logged_in');
-    return saved !== 'false'; // Default logged in for smooth instant access
+    return saved === 'true';
   });
   const [isSpecModalOpenFromLogin, setIsSpecModalOpenFromLogin] = useState(false);
 
@@ -558,6 +559,7 @@ export default function App() {
           <ExamPrepView
             courses={COURSES}
             initialPredictions={INITIAL_PREDICTIONS}
+            initialMcqs={INITIAL_MCQ_QUESTIONS}
             questionBank={QUESTION_BANK}
             contentItems={contentItems}
             currentUser={currentUser}
