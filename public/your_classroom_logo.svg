@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <radialGradient id="gearGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#102e50" />
+      <stop offset="100%" stop-color="#0a1f38" />
+    </radialGradient>
+  </defs>
+  <g id="teeth" fill="#0b2440">
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(0 100 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(36, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(72, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(108, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(144, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(180, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(216, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(252, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(288, 100, 100)" />
+    <rect x="92.5" y="14" width="15" height="22" rx="2" transform="rotate(324, 100, 100)" />
+  </g>
+  <circle cx="100" cy="100" r="73" fill="url(#gearGrad)" stroke="#07192c" stroke-width="3" />
+  <circle cx="100" cy="100" r="63" fill="none" stroke="#c98a18" stroke-width="3.2" />
+  <g id="book">
+    <path d="M 58 75 C 70 73, 85 75, 96 80 L 96 122 C 85 117, 70 115, 58 117 C 53 117, 50 113, 50 108 L 50 84 C 50 79, 53 75, 58 75 Z" fill="#FAF6EB" />
+    <path d="M 142 75 C 130 73, 115 75, 104 80 L 104 122 C 115 117, 130 115, 142 117 C 147 117, 150 113, 150 108 L 150 84 C 150 79, 147 75, 142 75 Z" fill="#FAF6EB" />
+    <line x1="100" y1="79" x2="100" y2="123" stroke="#0b2440" stroke-width="3" stroke-linecap="round" />
+  </g>
+</svg>

@@ -1,0 +1,467 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #050b18;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  body.light-theme {
+    background-color: #f1f5f9;
+    color: #0f172a;
+  }
+
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(5, 11, 24, 0.6);
+  }
+
+  body.light-theme ::-webkit-scrollbar-track {
+    background: rgba(241, 245, 249, 0.8);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+  }
+
+  body.light-theme ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  body.light-theme ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.7);
+  }
+}
+
+/* Frosted glass utility classes */
+.glass-panel {
+  background: rgba(13, 22, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.glass-card-interactive {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.08);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(56, 189, 248, 0.5);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+}
+
+/* ==========================================================================
+   LIGHT MODE ADAPTIVE FROSTED GLASS THEME (CRYSTAL CLEAR HIGH CONTRAST)
+   ========================================================================== */
+
+.light {
+  color-scheme: light;
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Base Light Mode Canvas & Container Overrides */
+.light.bg-\[\#050b18\],
+.light .bg-\[\#050b18\],
+.light.bg-\[\#f1f5f9\],
+.light .bg-\[\#f1f5f9\],
+.light .bg-slate-950,
+.light .bg-slate-900,
+.light .bg-slate-800 {
+  background-color: #f8fafc !important;
+}
+
+/* Glass Panels, Cards & Major Views in Light Mode */
+.light .glass-panel,
+.light .glass-card,
+.light .glass-card-interactive,
+.light .bg-\[\#0b1428\]\/65,
+.light .bg-\[\#0b1428\]\/70,
+.light .bg-\[\#0b1428\]\/80,
+.light .bg-\[\#0b1428\]\/90,
+.light .bg-\[\#0b1428\],
+.light .bg-\[\#0d162a\],
+.light .bg-\[\#070e1f\]\/75,
+.light .bg-\[\#070e1f\]\/60,
+.light .bg-\[\#070e1e\]\/75,
+.light .bg-\[\#070e1f\],
+.light .bg-\[\#0a1226\]\/95,
+.light .bg-\[\#0a1226\],
+.light .bg-\[\#081226\] {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+}
+
+/* Interactive Card Hover */
+.light .glass-card-interactive:hover {
+  background-color: #f8fafc !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.12), 0 2px 8px -1px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Inner Sections & Subtle Card Layers in Light Mode */
+.light .bg-white\/\[0\.02\],
+.light .bg-white\/\[0\.03\],
+.light .bg-white\/\[0\.04\],
+.light .bg-white\/\[0\.05\],
+.light .bg-white\/\[0\.06\],
+.light .bg-white\/5 {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.light .bg-white\/\[0\.08\],
+.light .bg-white\/10,
+.light .bg-white\/\[0\.1\],
+.light .bg-white\/\[0\.15\],
+.light .bg-white\/20 {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* Top Headers & Navbars */
+.light header,
+.light .sticky.top-0 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Modal Backdrops */
+.light .bg-black\/70,
+.light .bg-black\/60,
+.light .bg-black\/50,
+.light .bg-black\/40 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+/* Border Adaptations */
+.light .border-white\/10,
+.light .border-white\/\[0\.08\],
+.light .border-white\/15,
+.light .border-white\/20,
+.light .border-white\/30,
+.light .border-white\/5,
+.light .border-white\/\[0\.05\] {
+  border-color: #e2e8f0 !important;
+}
+
+/* Dark gradient container fixes in light mode */
+.light .from-cyan-950,
+.light .to-blue-900 {
+  background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY IN LIGHT MODE
+   ========================================================================== */
+
+/* Main Text & Headings on Light Surfaces */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6 {
+  color: #0f172a !important;
+}
+
+.light .text-slate-100,
+.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .text-slate-400,
+.light .text-slate-500 {
+  color: #475569 !important;
+}
+
+/* Generic text-white turns dark on light backgrounds, EXCEPT inside solid dark/colored buttons & badges */
+.light .text-white {
+  color: #0f172a !important;
+}
+
+/* Protected Pure White Text for Solid Colored/Dark Elements */
+.light .bg-gradient-to-r .text-white,
+.light .bg-gradient-to-tr .text-white,
+.light [class*="bg-gradient-"] .text-white,
+.light [class*="bg-gradient-"] span,
+.light button[class*="bg-gradient-"],
+.light .bg-slate-900 .text-white,
+.light .bg-\[\#0f172a\] .text-white,
+.light .bg-rose-500,
+.light .bg-rose-500 .text-white,
+.light .bg-rose-600,
+.light .bg-rose-600 .text-white,
+.light .bg-emerald-600,
+.light .bg-emerald-600 .text-white,
+.light .bg-emerald-500 .text-white,
+.light .bg-blue-600,
+.light .bg-blue-600 .text-white,
+.light .bg-violet-600,
+.light .bg-violet-600 .text-white,
+.light .bg-indigo-600,
+.light .bg-indigo-600 .text-white,
+.light .bg-cyan-600,
+.light .bg-cyan-600 .text-white,
+.light .bg-cyan-500 .text-white {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   NAVIGATION & FILTER PILLS IN LIGHT MODE
+   ========================================================================== */
+
+/* Active Tab in Main Navigation */
+.light .flex > button.bg-white\/10,
+.light button.bg-white\/10 {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15) !important;
+}
+
+.light .flex > button.bg-white\/10 span,
+.light .flex > button.bg-white\/10 svg,
+.light button.bg-white\/10 span,
+.light button.bg-white\/10 svg {
+  color: #ffffff !important;
+}
+
+/* Inactive Tab in Main Navigation */
+.light .flex > button.text-slate-400 {
+  color: #475569 !important;
+}
+
+.light .flex > button.text-slate-400:hover {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+
+/* Course Filter Pills: Active vs Inactive */
+.light button.bg-white.text-slate-900,
+.light .bg-white.text-slate-900 {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid #0f172a !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15) !important;
+}
+
+.light button.bg-white\/\[0\.04\].text-slate-400 {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.light button.bg-white\/\[0\.04\].text-slate-400:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* ==========================================================================
+   ACCENT COLOR RE-MAPPINGS (HIGH CONTRAST ON LIGHT)
+   ========================================================================== */
+
+/* Cyan / Sky */
+.light .text-cyan-200,
+.light .text-cyan-300,
+.light .text-cyan-400 {
+  color: #0284c7 !important;
+}
+
+.light .border-cyan-400\/30,
+.light .border-cyan-400\/40,
+.light .border-cyan-500\/20,
+.light .border-cyan-500\/30 {
+  border-color: #7dd3fc !important;
+}
+
+.light .bg-cyan-500\/10,
+.light .bg-cyan-500\/15,
+.light .bg-cyan-500\/20 {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border-color: #bae6fd !important;
+}
+
+/* Amber / Exam Prep */
+.light .text-amber-200,
+.light .text-amber-300,
+.light .text-amber-400 {
+  color: #b45309 !important;
+}
+
+.light .border-amber-400\/40,
+.light .border-amber-500\/20,
+.light .border-amber-500\/30 {
+  border-color: #fcd34d !important;
+}
+
+.light .bg-amber-500\/10,
+.light .bg-amber-500\/15,
+.light .bg-amber-500\/20 {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border-color: #fde68a !important;
+}
+
+/* Emerald / Approvals / Success */
+.light .text-emerald-200,
+.light .text-emerald-300,
+.light .text-emerald-400 {
+  color: #047857 !important;
+}
+
+.light .border-emerald-400\/40,
+.light .border-emerald-500\/20,
+.light .border-emerald-500\/30 {
+  border-color: #6ee7b7 !important;
+}
+
+.light .bg-emerald-500\/10,
+.light .bg-emerald-500\/15,
+.light .bg-emerald-500\/20 {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+  border-color: #a7f3d0 !important;
+}
+
+/* Rose / Moderation / Warnings */
+.light .text-rose-200,
+.light .text-rose-300,
+.light .text-rose-400 {
+  color: #be123c !important;
+}
+
+.light .border-rose-400\/40,
+.light .border-rose-500\/20,
+.light .border-rose-500\/30,
+.light .border-rose-500\/40 {
+  border-color: #fda4af !important;
+}
+
+.light .bg-rose-500\/10,
+.light .bg-rose-500\/15,
+.light .bg-rose-500\/20 {
+  background-color: #ffe4e6 !important;
+  color: #9f1239 !important;
+  border-color: #fecdd3 !important;
+}
+
+/* Violet / Indigo */
+.light .text-violet-200,
+.light .text-violet-300,
+.light .text-violet-400 {
+  color: #6d28d9 !important;
+}
+
+.light .bg-violet-500\/10,
+.light .bg-violet-500\/15,
+.light .bg-violet-500\/20 {
+  background-color: #ede9fe !important;
+  color: #5b21b6 !important;
+  border-color: #ddd6fe !important;
+}
+
+/* ==========================================================================
+   FORM INPUTS, SELECTS, TEXTAREAS IN LIGHT MODE
+   ========================================================================== */
+
+.light input:not([type="checkbox"]):not([type="radio"]),
+.light select,
+.light textarea,
+.light .glass-input {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #64748b !important;
+}
+
+.light input:focus,
+.light select:focus,
+.light textarea:focus,
+.light .glass-input:focus {
+  background-color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+  outline: none !important;
+}
+
+.light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Dropdown menus (Role switcher, Profile menu) */
+.light .absolute.z-50.bg-\[\#0a1226\]\/95,
+.light .absolute.bg-\[\#0a1226\]\/95,
+.light .absolute[class*="bg-\[\#0a1226\]"] {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Code & Pre Blocks */
+.light pre,
+.light code {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+

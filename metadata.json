@@ -1,0 +1,6 @@
+{
+  "name": "Your Classroom",
+  "description": "Centralized, AI-powered academic portal with role-based access, verification workflows, question bank, and Gemini exam prep for RUET students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
